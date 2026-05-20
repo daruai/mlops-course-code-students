@@ -165,7 +165,7 @@ teardown() {
     echo "    Note: GCP APIs were NOT disabled. Disable manually if needed:"
     echo "    gcloud services disable cloudbuild.googleapis.com artifactregistry.googleapis.com run.googleapis.com --project=${PROJECT_ID}"
 }
-
+#hola
 if [[ "${1:-}" == "teardown" ]]; then
     teardown
 fi
