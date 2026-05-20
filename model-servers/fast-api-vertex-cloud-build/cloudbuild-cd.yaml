@@ -34,8 +34,8 @@ steps:
     id: 'deploy'
 
 substitutions:
-  _REGION: us-central1
-  _REPO_NAME: mlops-course-images
+  _REGION: europe-west1
+  _REPO_NAME: vertex-repo
   _IMAGE_NAME: fastapi-app-vertex
   _SERVICE_NAME: fastapi-app-vertex
 

@@ -6,11 +6,13 @@
 # ============================================================
 
 # === CONFIGURABLE VARIABLES (edit these) ===
-PROJECT_ID="your-project-id"
-REGION="us-central1"
+PROJECT_ID="project3grupo6"
+REGION="europe-west1"
 REPO_NAME="vertex-repo"
-GITHUB_OWNER="your-github-username"
-GITHUB_REPO="your-repo-name"
+IMAGE_NAME="fastapi-app-vertex"
+SERVICE_NAME="fastapi-app-vertex"
+GITHUB_OWNER="jorgitogh"
+GITHUB_REPO="mlops-course-code-students"
 
 # ============================================================
 # Step 1: Enable required GCP APIs
@@ -105,6 +107,7 @@ gcloud builds triggers create github \
     --build-config="model-servers/fast-api-vertex-cloud-build/cloudbuild-cd.yaml" \
     --included-files="model-servers/fast-api-vertex-cloud-build/**" \
     --service-account="projects/${PROJECT_ID}/serviceAccounts/${CB_SA_EMAIL}" \
+    --substitutions="_REGION=${REGION},_REPO_NAME=${REPO_NAME},_IMAGE_NAME=${IMAGE_NAME},_SERVICE_NAME=${SERVICE_NAME}" \
     --region="$REGION" \
     --project="$PROJECT_ID"
 
@@ -120,8 +123,6 @@ echo "    Cloud Run service will be created on first deploy."
 # TEARDOWN — run manually to remove all created resources
 # Usage: bash setup-cloud-build.sh teardown
 # ============================================================
-SERVICE_NAME="fastapi-app-vertex"
-
 teardown() {
     echo "==> WARNING: This will delete all resources created by this script."
     read -p "    Are you sure? (yes/no): " CONFIRM
