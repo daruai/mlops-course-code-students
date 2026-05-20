@@ -8,6 +8,7 @@
 # 4. Create the prediction endpoint
 
 import joblib
+from pathlib import Path
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
@@ -17,14 +18,16 @@ import uvicorn
 # The model is a simple dictionary with 4 float fields: sepal_length, sepal_width, petal_length, petal_width
 
 class IrisData(BaseModel):
-    # TODO: WRITE YOUR CODE HERE
-    pass
+    sepal_length: float
+    sepal_width: float
+    petal_length: float
+    petal_width: float
 
     
 # 2. Load the model
 # The model is a serialized scikit-learn model
 
-# TODO: WRITE YOUR CODE HERE
+model = joblib.load(Path(__file__).resolve().parents[2] / "model.pkl")
 
 
 app = FastAPI()
@@ -38,8 +41,7 @@ async def root():
 
 @app.get("/health")
 async def health():
-    # TODO: WRITE YOUR CODE HERE
-    pass
+    return {"status": "ok"}
 
 # 4. Create the prediction endpoint
 # The prediction endpoint is used to get predictions from the model
@@ -49,9 +51,10 @@ async def health():
 
 @app.post("/predict")
 async def predict(data: IrisData):
-    # TODO: WRITE YOUR CODE HERE
+    features = [[data.sepal_length, data.sepal_width, data.petal_length, data.petal_width]]
+    prediction = model.predict(features)
 
-    return None
+    return {"prediction": int(prediction[0])}
     
 
 if __name__ == "__main__":
