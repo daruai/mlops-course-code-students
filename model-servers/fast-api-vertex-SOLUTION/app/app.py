@@ -9,7 +9,7 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-
+#hola
 # Load the trained model
 with open("model.pkl", "rb") as f:
     model = joblib.load(f)
