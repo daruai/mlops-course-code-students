@@ -6,11 +6,11 @@
 # ============================================================
 
 # === CONFIGURABLE VARIABLES (edit these) ===
-PROJECT_ID="your-project-id"
+PROJECT_ID="project3grupo3" 
 REGION="us-central1"
 REPO_NAME="vertex-repo"
-GITHUB_OWNER="your-github-username"
-GITHUB_REPO="your-repo-name"
+GITHUB_OWNER="brunoestevecaste"
+GITHUB_REPO="mlops-course-code-students"
 
 # ============================================================
 # Step 1: Enable required GCP APIs
@@ -96,7 +96,7 @@ gcloud builds triggers create github \
 # ============================================================
 # Step 6: Create CD trigger (Push to main)
 # ============================================================
-echo "==> Creating CD trigger (Push to main → build + push + deploy)..."
+echo "==> Creating CD trigger (Push to main -> build + push + deploy)..."
 gcloud builds triggers create github \
     --name="cd-build-and-deploy" \
     --repo-name="$GITHUB_REPO" \
