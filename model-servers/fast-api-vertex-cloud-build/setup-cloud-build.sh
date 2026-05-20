@@ -6,11 +6,11 @@
 # ============================================================
 
 # === CONFIGURABLE VARIABLES (edit these) ===
-PROJECT_ID="your-project-id"
+PROJECT_ID="project3grupo2"
 REGION="us-central1"
-REPO_NAME="vertex-repo"
-GITHUB_OWNER="your-github-username"
-GITHUB_REPO="your-repo-name"
+REPO_NAME="artifact19m"
+GITHUB_OWNER="paolargzl"
+GITHUB_REPO="mlops-course-code-students"
 
 # ============================================================
 # Step 1: Enable required GCP APIs
